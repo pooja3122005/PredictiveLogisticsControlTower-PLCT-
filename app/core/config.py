@@ -15,7 +15,10 @@ load_dotenv()
 @dataclass
 class Settings:
     app_name: str = "Predictive Logistics Control Tower"
-    sqlite_path: str = os.getenv("SQLITE_PATH", "data/plct.db")
+    sqlite_path: str = os.getenv(
+        "SQLITE_PATH",
+        "/tmp/plct.db" if os.getenv("VERCEL") else "data/plct.db",
+    )
     ors_api_key: str | None = os.getenv("ORS_API_KEY")
     backend_url: str = os.getenv("BACKEND_URL", "http://localhost:8000")
     delay_threshold: float = float(os.getenv("DELAY_THRESHOLD", "0.65"))

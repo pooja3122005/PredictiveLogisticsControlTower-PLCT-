@@ -9,3 +9,4 @@ numpy
 scipy
 scikit-learn
 python-dotenv
+asgi2wsgi
